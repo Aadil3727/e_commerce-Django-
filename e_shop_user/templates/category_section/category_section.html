@@ -1,0 +1,83 @@
+{% load static %}
+
+<style>
+  .wrapper {
+    font-family: sans-serif;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .content {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 60px;
+  }
+
+  .content span {
+    font-size: 24px;
+    display: block
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #090400;
+  }
+
+  .wrapper:hover .overlay {
+    opacity: 1;
+  }
+</style>
+
+<div id="latest-cate"  class="container py-5 my-5 z-depth-1">
+  <section class="p-md-3 mx-md-5">
+    {% comment %} <h2 class="text-center mx-auto font-weight-bold mb-5 pb-2">Categories</h2> {% endcomment %}
+    <div class="row">
+      {% comment %} <div class="display-header"> {% endcomment %}
+        <h2 class="display-7 text-dark text-uppercase">Categories</h2>
+       
+      {% for i in category %}
+      <div class="col-lg-3 col-md-6 mb-lg-0 mb-4 ">
+        <div class="avatar white d-flex justify-content-center align-items-center wrapper">
+          <a href="#"><img src="{{i.cimage.url}}" style="height: 30vh;" class="img-fluid z-depth-1 image" /></a>
+          <div class="overlay">
+
+            <a href="{% url 'cate-pro' slug=i.slug %}"><div class="content"><h4>{{i.cname}}</h4></div></a>
+
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          {% comment %} <h5 class="font-weight-bold pb-1">{{i.cname}}</h5> {% endcomment %}
+          {% comment %} <p class="font-weight-normal">Creative Director</p> {% endcomment %}
+          {% comment %} <p class="text-muted mb-lg-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p> {% endcomment %}
+        </div>
+      </div>
+      
+      {% endfor %}
+      <div class="btn-right">
+        <a href="{% url 'all-cate' %}" class="btn btn-medium btn-normal text-uppercase">+ All Categories</a>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,29 @@
+{% load static %}
+<!-- Side Navbar -->
+<nav class="side-navbar">
+    <ul class="list-unstyled">
+
+        <li class="">
+            <a href="{% url 'index-page' %}"><img src="{% static '/images/1.png' %}">Account</a>
+        </li>
+
+        <li class="">
+            <a href="{% url 'show-cat' %}"><img src="{% static '/images/3.png' %}">Categories</a>
+        </li>
+
+        <li class="">
+            <a href="{% url 'show-pro' %}"><img src="{% static '/images/2.png' %}">Products</a>
+        </li>
+        <li class="">
+            <a href="{% url 'all-crousal' %}"><img src="{% static '/images/6.png' %}">Crousal</a>
+        </li>
+        <li class="">
+            <a href="{% url 'message-list' %}"><img src="{% static '/images/Message-icon.png' %}">Contact-Messages</a>
+        </li>
+
+        <li class="">
+            <a href="#"><img src="{% static '/images/4.png' %}">Orders</a>
+        </li>
+
+    </ul>
+</nav>

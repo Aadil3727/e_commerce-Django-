@@ -1,0 +1,213 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% load static %}
+
+{% comment %} {% include 'product_section/all_products.html' %} {% endcomment %}
+
+
+{% if 'product-details/' not in request_path %}
+{% include 'crousal/crousal.html' %}
+{% include 'tagline/tagline.html' %}
+{% include 'offer_section/offer_section.html' %}
+{% include 'product_section/product_section.html' %}
+{% include 'category_section/category_section.html' %}
+{% endif %}
+{% comment %} {% include 'product_section/all_products.html' %} {% endcomment %}
+
+
+<!-- offer banner -->
+{% comment %} <section id="yearly-sale" class="bg-light-blue overflow-hidden mt-5 padding-xlarge"
+  style="background-image: url('images/single-image1.png');background-position: right; background-repeat: no-repeat;">
+  <div class="row d-flex flex-wrap align-items-center">
+    <div class="col-md-6 col-sm-12">
+      <div class="text-content offset-4 padding-medium">
+        <h3>10% off</h3>
+        <h2 class="display-2 pb-5 text-uppercase text-dark">New year sale</h2>
+        <a href="shop.html" class="btn btn-medium btn-dark text-uppercase btn-rounded-none">Shop Sale</a>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+
+    </div>
+  </div>
+</section> {% endcomment %}
+<!-- end banner -->
+
+{% comment %} review section {% endcomment %}
+{% comment %} <section id="testimonials" class="position-relative">
+  <div class="container">
+    <div class="row">
+      <div class="review-content position-relative">
+        <div class="swiper-icon swiper-arrow swiper-arrow-prev position-absolute d-flex align-items-center">
+          <svg class="chevron-left">
+            <use xlink:href="#chevron-left" />
+          </svg>
+        </div>
+        <div class="swiper testimonial-swiper">
+          <div class="quotation text-center">
+            <svg class="quote">
+              <use xlink:href="#quote" />
+            </svg>
+          </div>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide text-center d-flex justify-content-center">
+              <div class="review-item col-md-10">
+                <i class="icon icon-review"></i>
+                <blockquote>“Tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis
+                  Pellen tesque pretium feugiat vel morbi suspen dise sagittis lorem habi tasse morbi.”</blockquote>
+                <div class="rating">
+                  <svg class="star star-fill">
+                    <use xlink:href="#star-fill"></use>
+                  </svg>
+                  <svg class="star star-fill">
+                    <use xlink:href="#star-fill"></use>
+                  </svg>
+                  <svg class="star star-fill">
+                    <use xlink:href="#star-fill"></use>
+                  </svg>
+                  <svg class="star star-half">
+                    <use xlink:href="#star-half"></use>
+                  </svg>
+                  <svg class="star star-empty">
+                    <use xlink:href="#star-empty"></use>
+                  </svg>
+                </div>
+                <div class="author-detail">
+                  <div class="name text-dark text-uppercase pt-2">Emma Chamberlin</div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide text-center d-flex justify-content-center">
+              <div class="review-item col-md-10">
+                <i class="icon icon-review"></i>
+                <blockquote>“A blog is a digital publication that can complement a website or exist independently. A
+                  blog may include articles, short posts, listicles, infographics, videos, and other digital content.”
+                </blockquote>
+                <div class="rating">
+                  <svg class="star star-fill">
+                    <use xlink:href="#star-fill"></use>
+                  </svg>
+                  <svg class="star star-fill">
+                    <use xlink:href="#star-fill"></use>
+                  </svg>
+                  <svg class="star star-fill">
+                    <use xlink:href="#star-fill"></use>
+                  </svg>
+                  <svg class="star star-half">
+                    <use xlink:href="#star-half"></use>
+                  </svg>
+                  <svg class="star star-empty">
+                    <use xlink:href="#star-empty"></use>
+                  </svg>
+                </div>
+                <div class="author-detail">
+                  <div class="name text-dark text-uppercase pt-2">Jennie Rose</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-icon swiper-arrow swiper-arrow-next position-absolute d-flex align-items-center">
+          <svg class="chevron-right">
+            <use xlink:href="#chevron-right" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+</section> {% endcomment %}
+{% comment %} end review  {% endcomment %}
+
+{% comment %} subscribe box  {% endcomment %}
+{% comment %} <section id="subscribe" class="container-grid padding-large position-relative overflow-hidden">
+  <div class="container">
+    <div class="row">
+      <div class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
+        <div class="col-md-6 col-sm-12">
+          <div class="display-header pe-3">
+            <h2 class="display-7 text-uppercase text-light">Subscribe Us Now</h2>
+            <p>Get latest news, updates and deals directly mailed to your inbox.</p>
+          </div>
+        </div>
+        <div class="col-md-5 col-sm-12">
+          <form class="subscription-form validate">
+            <div class="input-group flex-wrap">
+              <input class="form-control btn-rounded-none" type="email" name="EMAIL"
+                placeholder="Your email address here" required="">
+              <button class="btn btn-medium btn-primary text-uppercase btn-rounded-none" type="submit"
+                name="subscribe">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> {% endcomment %}
+{% comment %} end subscribe box  {% endcomment %}
+
+{% comment %} social product section  {% endcomment %}
+{% comment %} <section id="instagram" class="padding-large overflow-hidden no-padding-top">
+  <div class="container">
+    <div class="row">
+      <div class="display-header text-uppercase text-dark text-center pb-3">
+        <h2 class="display-7">Shop Our Insta</h2>
+      </div>
+      <div class="d-flex flex-wrap">
+        <figure class="instagram-item pe-2">
+          <a href="https://templatesjungle.com/" class="image-link position-relative">
+            <img src="/static/images/insta-item1.jpg" alt="instagram" class="insta-image">
+            <div class="icon-overlay position-absolute d-flex justify-content-center">
+              <svg class="instagram">
+                <use xlink:href="#instagram"></use>
+              </svg>
+            </div>
+          </a>
+        </figure>
+        <figure class="instagram-item pe-2">
+          <a href="https://templatesjungle.com/" class="image-link position-relative">
+            <img src="/static/images/insta-item2.jpg" alt="instagram" class="insta-image">
+            <div class="icon-overlay position-absolute d-flex justify-content-center">
+              <svg class="instagram">
+                <use xlink:href="#instagram"></use>
+              </svg>
+            </div>
+          </a>
+        </figure>
+        <figure class="instagram-item pe-2">
+          <a href="https://templatesjungle.com/" class="image-link position-relative">
+            <img src="/static/images/insta-item3.jpg" alt="instagram" class="insta-image">
+            <div class="icon-overlay position-absolute d-flex justify-content-center">
+              <svg class="instagram">
+                <use xlink:href="#instagram"></use>
+              </svg>
+            </div>
+          </a>
+        </figure>
+        <figure class="instagram-item pe-2">
+          <a href="https://templatesjungle.com/" class="image-link position-relative">
+            <img src="/static/images/insta-item4.jpg" alt="instagram" class="insta-image">
+            <div class="icon-overlay position-absolute d-flex justify-content-center">
+              <svg class="instagram">
+                <use xlink:href="#instagram"></use>
+              </svg>
+            </div>
+          </a>
+        </figure>
+        <figure class="instagram-item pe-2">
+          <a href="https://templatesjungle.com/" class="image-link position-relative">
+            <img src="/static/images/insta-item5.jpg" alt="instagram" class="insta-image">
+            <div class="icon-overlay position-absolute d-flex justify-content-center">
+              <svg class="instagram">
+                <use xlink:href="#instagram"></use>
+              </svg>
+            </div>
+          </a>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section> {% endcomment %}
+{% comment %} end social  {% endcomment %}
+
+{% endblock %}

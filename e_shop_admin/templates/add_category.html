@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Add New Category</h4>
+        <form class="form-material mt-4 row" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group col-md-6 mt-3">
+                <input type="text" name="cname" class="form-control form-control-line" placeholder="Category Name">
+            </div>
+            <div class="form-group col-md-6 mt-3">
+                <input type="file" name="cimage" class="form-control" placeholder="Upload Image:"></div>
+            
+                <button type="submit" class="btn btn-success">Add</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

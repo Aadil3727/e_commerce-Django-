@@ -1,0 +1,101 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% comment %} {% include 'messages.html' %} {% endcomment %}
+<style>
+  .gradient-custom-3 {
+    /* fallback for old browsers */
+    background: #84fab0;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+  }
+
+  .gradient-custom-4 {
+    /* fallback for old browsers */
+    background: #84fab0;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+  }
+</style>
+{% comment %} <section class=""
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  {% endcomment %}
+  <div class="mask d-flex align-items-center h-200 gradient-custom-3">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">{% if ty == "loginn" %} Login {% else %} Create an account
+                {% endif %}</h2>
+
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example1cg" name="username" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">User Name</label>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cg" name="password" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cg">Password</label>
+                </div>
+
+                {% if type == "Registration"  %}
+                <div class="form-outline mb-4">
+                  <input type="number" id="form3Example4cg" name="phone_no" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cg">Phone No:</label>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="file" id="form3Example4cg" name="image" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cg">Upload Image:</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="form3Example3cg" name="email" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example3cg">Email</label>
+                </div>
+                {% endif %}
+                {% comment %} <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                </div> {% endcomment %}
+
+                {% comment %} <div class="form-check d-flex justify-content-center mb-5">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div> {% endcomment %}
+              
+               
+              
+                <p class="text-center text-muted mt-5 mb-0">{% if ty == "loginn" %} Forget Password? <a
+                    href="{% url 'reset-pass' %}" class="fw-bold text-body"><u>Click Here</u></a>{% endif %}
+                  <div class="d-flex justify-content-center">
+                    <button type="submit"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">{% if ty == "loginn" %} Login
+                      {% else %} Register {% endif %}</button>
+                  </div>
+                  <p class="text-center text-muted mt-5 mb-0">{% if ty == "loginn" %} Don't have an account? <a
+                      href="{% url 'signup' %}" class="fw-bold text-body"><u>SignUp here</u></a>{% else %}Have already
+                    an account? <a href="{% url 'login-user' %}" class="fw-bold text-body"><u>Login here</u></a></p>
+                  {% endif %}
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

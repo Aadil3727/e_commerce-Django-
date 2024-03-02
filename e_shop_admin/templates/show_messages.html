@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="content-inner">
+  <!-- Page Header-->
+  <header class="page-header">
+    <div class="container-fluid">
+      <h2 class="no-margin-bottom">Messages</h2>
+    </div>
+  </header>
+  <!-- Dashboard List Section-->
+  <section>
+
+    <div class="container">
+      <div class="row" style="margin:0;">
+        <div class="col-sm-12">
+          <div class="tab-list">
+            <div class="card-body">
+              <!-- title -->
+              <div class="d-md-flex align-items-center">
+                <div>
+                  <h4 class="card-title">All Messages</h4>
+                </div>
+                <div class="ml-auto">
+                  <div class="dl">
+
+                    {% comment %} <a type="button" href="{% url 'img-crousal' %}" class="btn btn-info">Create Carousel</a> {% endcomment %}
+                  </div>
+                </div>
+              </div>
+              <!-- title -->
+            </div>
+            <div class="table-responsive">
+              <table class="table v-middle">
+                <thead>
+
+                  <tr class="bg-light">
+                    <th>
+                      <div style="width:250px;">Action</div>
+                    </th>
+                    <th>
+                      <div style="width:250px;">Name</div>
+                    </th>
+                    <th>
+                      <div style="width:250px;">Email</div>
+                    </th>
+                    <th>
+                      <div style="width:250px;">Subject</div>
+                    </th>
+                    <th>
+                      <div style="width:250px;">Message</div>
+                    </th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in mess %}
+                  <tr>
+                    <td>
+                      <div style="display:flex;">
+                        <a href="{% url 'det-message' pk=i.id %}"><img src="/static/images/3817209.png" style="height: 32;"></a>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <h4 class="m-b-0 font-16">{{i.name}}</h4>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <h4 class="m-b-0 font-16">{{i.email}}</h4>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <h4 class="m-b-0 font-16">{{i.subject}}</h4>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <h4 class="m-b-0 font-16">{{i.message}}</h4>
+                        </div>
+                      </div>
+                    </td>
+                 
+
+                    {% endfor %}
+                  </tr>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Page Footer-->
+  <footer class="main-footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <p>Your company &copy; 2017-2019</p>
+        </div>
+        <div class="col-sm-6 text-right">
+          <p>Design by <a href="https://bootstrapious.com/admin-templates" class="external">IANT Technology</a></p>
+          <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</div>
+</div>
+
+{% endblock %}

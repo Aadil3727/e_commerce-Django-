@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="content-inner">
+  <!-- Page Header-->
+  <header class="page-header">
+    <div class="container-fluid">
+      <h2 class="no-margin-bottom">Prodcut List</h2>
+    </div>
+  </header>
+  <!-- Dashboard List Section-->
+  <section>
+
+    <div class="container">
+      <div class="row" style="margin:0;">
+        <div class="col-sm-12">
+          <div class="tab-list">
+            <div class="card-body">
+              <!-- title -->
+              <div class="d-md-flex align-items-center">
+                <div>
+                  <h4 class="card-title">All Prodcuts</h4>
+                </div>
+                <div class="ml-auto">
+                  <div class="dl">
+
+                    <a type="button" href="{% url 'add-product' %}" class="btn btn-info">Create Product</a>
+                  </div>
+                </div>
+              </div>
+              <!-- title -->
+            </div>
+            <div class="table-responsive">
+              <table class="table v-middle">
+                <thead>
+
+                  <tr class="bg-light">
+                    <th>
+                      <div style="width:250px;">Action</div>
+                    </th>
+                    <th>
+                      <div style="width:250px;">Product</div>
+                    </th>
+                    <th>
+                      <div style="width:250px;">Price</div>
+                    </th>
+                    <th>
+                      <div style="width:250px;">Description</div>
+                    </th>
+                    <th>
+                      <div style="width:250px;">Category</div>
+                    </th>
+                    <th>
+                      <div style="width:250px;">Image</div>
+                    </th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in products %}
+                  <tr>
+                    <td>
+                      <div style="display:flex;">
+                        <a href="{% url 'edit-pro' slug=i.slug %}"><img src="/static/images/Fa-Team-Fontawesome-FontAwesome-Pen-to-Square.1024.png" style="height: 29;"></a>
+                        <a href="{% url 'del-pro' slug=i.slug %}"><img src="/static/images/3817209.png" style="height: 32;"></a>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <h4 class="m-b-0 font-16">{{i.p_name}}</h4>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <h4 class="m-b-0 font-16">{{i.p_price}}</h4>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <h4 class="m-b-0 font-16">{{i.p_description|slice:50}}</h4>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <h4 class="m-b-0 font-16">{{i.p_category}}</h4>
+                        </div>
+                      </div>
+                    </td>
+                    <td><img src="{{i.p_image.url}}" alt="Image" height="75" width="75"></td>
+
+                    {% endfor %}
+                  </tr>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Page Footer-->
+  <footer class="main-footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <p>Your company &copy; 2017-2019</p>
+        </div>
+        <div class="col-sm-6 text-right">
+          <p>Design by <a href="https://bootstrapious.com/admin-templates" class="external">IANT Technology</a></p>
+          <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</div>
+</div>
+
+{% endblock %}

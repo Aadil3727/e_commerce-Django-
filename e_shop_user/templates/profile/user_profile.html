@@ -1,0 +1,122 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="/static/css/profile.css">
+
+<div class="container mt-5">
+    
+    <div class="row">
+        
+        <div class="col-lg-4 pb-5">
+            <!-- Account Sidebar-->
+            <div class="author-card pb-3">
+                <div class="author-card-cover"
+                    style="background-image: url(https://bootdey.com/img/Content/flores-amarillas-wallpaper.jpeg);"><a
+                        class="btn btn-style-1 btn-white btn-sm" href="#" data-toggle="tooltip" title=""
+                        data-original-title="You currently have 290 Reward points to spend"><i
+                            class="fa fa-award text-md"></i>
+                        {% comment %} &nbsp;290 points {% endcomment %}
+                    </a></div>
+                <div class="author-card-profile">
+                    <div class="author-card-avatar"><img src="{{user.image.url}}" alt="your name">
+                    </div>
+                    <div class="author-card-details">
+                        <h5 class="author-card-name text-lg">{{user.username}}</h5><span
+                            class="author-card-position">{{user.date_joined}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="wizard">
+                <nav class="list-group list-group-flush">
+                    <a class="list-group-item" href="{% url 'wish-lists' %}">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+                                <div class="d-inline-block font-weight-medium text-uppercase">My Wishlist</div>
+                            </div><span class="badge badge-secondary">6</span>
+                        </div>
+                    </a><a class="list-group-item active" href="#"><i class="fe-icon-user text-muted"></i>Profile
+                        Settings</a><a class="list-group-item" href="#"><i
+                            class="fe-icon-map-pin text-muted"></i>Addresses</a>
+                    <a class="list-group-item" href="https://www.bootdey.com/snippets/view/bs4-wishlist-profile-page"
+                        target="__blank">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div><i class="fe-icon-heart mr-1 text-muted"></i>
+                                <div class="d-inline-block font-weight-medium text-uppercase">Orders List</div>
+                            </div><span class="badge badge-secondary">3</span>
+                        </div>
+                    </a>
+                    <a class="list-group-item" href="https://www.bootdey.com/snippets/view/bs4-account-tickets"
+                        target="__blank">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div><i class="fe-icon-tag mr-1 text-muted"></i>
+                                <div class="d-inline-block font-weight-medium text-uppercase">My Tickets</div>
+                            </div><span class="badge badge-secondary">4</span>
+                        </div>
+                    </a>
+                </nav>
+            </div>
+        </div>
+        <!-- Profile Settings-->
+       
+        <div class="col-lg-8 pb-5">
+            <form class="row" method="post" enctype="multipart/form-data">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="account-fn">Username</label>
+                        <input class="form-control" type="text" name="username" id="account-fn" value="{{user.username}}" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="account-ln">Last Login</label><br>
+                        <strong>{{user.last_login}}</strong>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="account-phone">Phone Number</label>
+                        <input class="form-control" type="text" name="phone_no" id="account-phone" value="{{user.phone_no}}"
+                            required="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="account-email">E-mail Address</label><br>
+                        <strong>{{user.email}}</strong>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="account-pass">Your Image</label>
+                        <img src="{{user.image.url}}" height="100" style="border: 5px solid #555;">
+                        <input class="form-control" name="image" type="file" value="{{user.image}}" id="account-pass">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="account-confirm-pass">Date joined</label><br>
+                        <strong>{{user.date_joined}}</strong>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <hr class="mt-2 mb-3">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center">
+                        <div class="custom-control custom-checkbox d-block">
+                            {% comment %} <input class="custom-control-input" type="checkbox" id="subscribe_me"
+                                checked=""> {% endcomment %}
+                            {% comment %} <label class="custom-control-label" for="subscribe_me">Subscribe me to
+                                Newsletter</label> {% endcomment %}
+                        </div>
+                        <button class="btn btn-style-1 btn-primary" type="submit" data-toast=""
+                            data-toast-position="topRight" data-toast-type="success"
+                            data-toast-icon="fe-icon-check-circle" data-toast-title="Success!"
+                            data-toast-message="Your profile updated successfuly.">Update Profile</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% load static %}
+
+
+<link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'all.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'font-awesome.min.css' %}">
+<script src="https://kit.fontawesome.com/386f517e5c.js" crossorigin="anonymous"></script>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<div>
+
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="auth-box">
+                    <div id="loginform">
+                        <div class="logo">
+                            <span class="db"><img src="{% static '\images\login-button-hi.png' %}" alt="logo" class="img-responsive"></span>
+                            <h5 class="font-medium m-b-20">Sign In to Admin</h5><br>
+                        </div>
+                        <!-- Form -->
+                        <div class="row">
+                            <div class="col-12">
+                                <form class="form-horizontal m-t-20" id="loginform" action="index.html">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="fa fa-user-o"></i></span>
+                                        </div>
+                                        <input type="text" name="username" class="form-control" placeholder="Username"
+                                            aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon2"><i
+                                                    class="fa fa-pencil"></i></span>
+                                        </div>
+                                        <input type="password" name="password" class="form-control" placeholder="Password"
+                                            aria-label="Password" aria-describedby="basic-addon1">
+                                    </div>
+
+                                    <div class="form-group text-center">
+                                        <div class="col-xs-12 p-b-20">
+                                            <button class="btn btn-block btn-lg btn-success" type="submit">Log
+                                                In</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group m-b-0 m-t-10">
+                                        <div class="col-sm-12 text-center">
+                                            <a href="authentication-register1.html" class="text-info m-l-5"><b>Forgot
+                                                    Password ?</b></a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</form>
+
+

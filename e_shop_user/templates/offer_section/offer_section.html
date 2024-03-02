@@ -1,0 +1,55 @@
+<!--offer products -->
+
+<section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
+  <div class="container">
+    <div class="row">
+      <div class="display-header d-flex justify-content-between pb-3">
+        <h2 class="display-7 text-dark text-uppercase">Offer Products</h2> <img src="/static/images./tenor.gif" style="height: 25vh;width: 15vw;">
+
+        <div class="btn-right">
+          <a href="{% url 'allproducts' %}" class="btn btn-medium btn-normal text-uppercase">Go to Shop</a>
+        </div>
+      </div>
+    
+      <div class="swiper product-swiper">
+        
+
+        <div class="swiper-wrapper">
+
+          {% for i in products %}          
+          {% if i.is_offer %}
+          <div class="swiper-slide">
+            <div class="product-card position-relative">
+
+              <div class="image-holder">
+
+                <img src="{{i.p_image.url}}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="cart-concern position-absolute">
+                <div class="cart-button d-flex">
+                  <a href="{% url 'pro-det' slug=i.slug %}" class="btn btn-medium btn-black">Add to Cart<svg
+                      class="cart-outline">
+                      <use xlink:href="#cart-outline"></use>
+                    </svg></a>
+                </div>
+              </div>
+              <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                {% comment %} <h4 class="card-title">
+                  <h1><a href="{% url 'pro-det' slug=i.slug %}">{{i.p_name|slice:16}}</a></h1>
+                </h4>
+                <span class="item-price text-primary">{{i.p_price}}</span> {% endcomment %}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <div class="swiper-pagination position-absolute text-center"></div>
+</section>
+<!-- end offerproducts -->

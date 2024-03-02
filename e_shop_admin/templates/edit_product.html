@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Edit Product</h4>
+        <form class="form-material mt-4 row" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group col-md-6 mt-3">
+                <input type="text" class="form-control form-control-line" value="{{products.p_name}}" name="p_name"
+                    placeholder="Product Name">
+            </div>
+            <div class="form-group col-md-6 mt-3">
+                <input type="number" name="p_price" class="form-control" value="{{products.p_price}}"
+                    placeholder="Price">
+            </div>
+            {% comment %} <div class="form-group col-md-6 mt-3">
+                <input type="checkbox" value="{{products.is_offer}}" name="is_offer">
+                <label>Isoffer</label>
+            </div> {% endcomment %}
+
+            <div class="form-group col-md-6 mt-3">
+
+                Offer: <input type="checkbox" {% if products.is_offer %} checked
+                    {% endif %}value="{{products.is_offer}}" id="myCheck" name="is_offer" onclick="myFunction()">
+            </div>
+            {% if products.is_offer %}
+            <div class="form-group col-md-6 mt-3">
+                <input type="number" id="text" class="form-control" value="{{products.offer_price}}" name="offer_price"
+                    placeholder="Offer price">
+            </div>
+            {% endif %}
+            {% comment %} {% if is_offer %} {% endcomment %}
+            {% comment %} <div class="form-group col-md-6 mt-3">
+                <input type="number" name="offer_price" class="form-control" value="{{products.offer_price}}">
+            </div> {% endcomment %}
+            {% comment %} {% endif %} {% endcomment %}
+            <div class="d-flex flex-wrap">
+
+                {% for i in try %}
+                <div class="card">
+                    <a href="{% url 'del-img' pk=i.id slug=products.slug %}"><img src="/static/images/3817209.png"
+                            style="height: 40;"></a>
+                    <img src="{{i.image.url}}" height="100px">
+                </div>
+                {% endfor %}
+
+            </div>
+            <div class="form-group col-md-4 mt-3">
+                <input type="file" multiple class="form-control form-control-line" value="{{products.p_image}}"
+                    placeholder="" name="p_image">
+            </div>
+            <div class="form-group col-md-4 mt-3">
+                <input type="textarea" name="p_description" class="form-control form-control-line"
+                    value="{{products.p_description}}"></textarea>
+            </div>
+            <div class="form-group col-md-6 mt-3">
+                <label>Choose:</label>
+
+                <select name="p_category">
+                    {% for i in pro1 %}
+                    <option value="{{i.id}}">{{i.cname}}</option>
+                    {% endfor %}
+
+                </select>
+
+            </div>
+            {% comment %} <script>
+                CKEDITOR.replace('p_description');
+            </script> {% endcomment %}
+            <button type="submit" class="btn btn-success">Edit</button>
+
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    function myFunction() {
+        // Get the checkbox
+        var checkBox = document.getElementById("myCheck");
+        // Get the output text
+        var text = document.getElementById("text");
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}

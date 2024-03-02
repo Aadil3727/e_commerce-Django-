@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Add Product</h4>
+        <form class="form-material mt-4 row" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group col-md-6 mt-3">
+                <input type="text" class="form-control form-control-line" name="p_name" placeholder="Product Name">
+            </div>
+            <div class="form-group col-md-6 mt-3">
+                <input type="number" name="p_price" class="form-control" placeholder="Price">
+            </div>
+            {% comment %} <div class="form-group col-md-6 mt-3">
+                <input type="checkbox" name="is_offer">
+                <label>Offer</label>
+            </div>
+
+            <div class="form-group col-md-6 mt-3">
+                <input type="number" name="offer_price" class="form-control" placeholder="Offer Price">
+            </div> {% endcomment %}
+
+            <div class="form-group col-md-6 mt-3">
+                Offer: <input type="checkbox" id="myCheck" name="is_offer" onclick="myFunction()">
+            </div>
+            <div class="form-group col-md-6 mt-3">
+                <input type="number" id="text" class="form-control" name="offer_price" placeholder="Offer price"
+                    style="display:none">
+            </div>
+
+            <div class="form-group col-md-4 mt-3">
+                <input type="file" multiple class="form-control form-control-line" placeholder="" name="p_image">
+            </div>
+            <div class="form-group col-md-4 mt-3">
+                <input type="text" name="p_description" class="form-control form-control-line" placeholder="Description">
+            </div>
+            <div class="form-group col-md-6 mt-3">
+                <label>Choose:</label>
+
+                <select name="p_category">
+                    {% for i in pro %}
+                    <option value="{{i.id}}">{{i}}</option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+            {% comment %} <script>
+                CKEDITOR.replace('p_description');
+            </script> {% endcomment %}
+            <button type="submit" class="btn btn-success">Add</button>
+
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    function myFunction() {
+        // Get the checkbox
+        var checkBox = document.getElementById("myCheck");
+        // Get the output text
+        var text = document.getElementById("text");
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}

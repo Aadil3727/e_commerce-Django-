@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="content-inner">
+
+    <!-- Dashboard Counts Section-->
+    <section class="dashboard-counts no-padding-bottom">
+        <div class="container-fluid">
+
+            <div class="card">
+                <div class="row">
+                    <!-- Item -->
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="item d-flex align-items-center">
+                            <div class="">
+                                <img src="{% static '/images/1.png' %}" style="width:45px;">
+                            </div>
+                            <div class="title">
+                                <span style="font-weight:600">Account</span><br>
+                                <div class="number text-dark"><strong>{{us.count}}</strong></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Item -->
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="item d-flex align-items-center">
+                            <div class="">
+                                <img src="{% static '/images/3.png' %}" style="width:45px;">
+                            </div>
+                            <div class="title">
+                                <span style="font-weight:600">Categories</span><br>
+                                <div class="number text-dark"><strong>{{cs.count}}</strong></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Item -->
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="item d-flex align-items-center">
+                            <div class="">
+                                <img src="{% static '/images/2.png' %}" style="width:45px;">
+                            </div>
+                            <div class="title">
+                                <span style="font-weight:600">Products</span><br>
+                                <div class="number text-dark"><strong>{{ps.count}}</strong></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Item -->
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="col-xl-3 col-sm-6">
+                            <div class="item d-flex align-items-center">
+                                <div class="">
+                                    <img src="{% static '/images/4.png' %}" style="width:45px;">
+                                </div>
+                                <div class="title">
+                                    <span style="font-weight:600">Orders</span><br>
+                                    <div class="number text-dark"><strong>None</strong></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body d-flex justify-content-between">
+                    <h4 class="card-title mb-0">Users List</h4>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table">
+
+                        <thead class="thead-light">
+
+                            <tr>
+
+                                {% comment %} <th scope="col">No</th> {% endcomment %}
+                                <th scope="col">Uername</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in us %}
+                            <tr>
+                                {% comment %} <th scope="row">1</th> {% endcomment %}
+                                <td>{{i.username}}</td>
+                                <td>{{i.email}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Page Footer-->
+
+</div>
+</div>
+</div>
+<!-- Javascript files-->
+
+{% endblock %}

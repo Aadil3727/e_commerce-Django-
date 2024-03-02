@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Add Carousel</h4>
+        <form class="form-material mt-4 row" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group col-md-6 mt-3">
+                <input type="text" class="form-control form-control-line" name="title" placeholder="Carousel Title">
+            </div>
+            <div class="form-group col-md-4 mt-3">
+                <input type="file" class="form-control form-control-line" placeholder="" name="img">
+            </div>
+
+            <div class="form-group col-md-6 mt-3">
+                <label>Choose Product:</label>
+
+                <select name="link_product">
+                    <option value=0>----</option>
+                    {% for i in products %}
+                    <option value="{{i.id}}">{{i}}</option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+            <div class="form-group col-md-6 mt-3">
+                <label>Choose Category:</label>
+
+                <select name="link_category">
+                    <option value=0>----</option>
+                    {% for i in categories %}
+
+                    <option value="{{i.id}}">{{i}}</option>
+
+                    {% endfor %}
+
+                </select>
+                <br>
+                <label>Choose Type:</label>
+
+                <select name="link_type">
+                   
+                    {%for i in sliders%}
+                    <option value="{{i.0}}">{{i.1}}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-success">Add</button>
+
+    </form>
+</div>
+</div>
+{% endblock %}
